@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -66,20 +66,21 @@ namespace SecurityLibrary
 
                 L++;
             }
-            int finalKeyIndex = 0;
-            string allKey = resName.ToString();
-            string originalKey;
-            originalKey = allKey.Substring(0, 3);
-
-            int subStringIndex = allKey.IndexOf(originalKey, 1);
-
-            finalKeyIndex = subStringIndex;
-            string Key = allKey.Substring(0, finalKeyIndex);
-            return Key;
+            string key = resName.ToString().Substring(0, 2);
+            for (int i = 2; i < resName.Length; i++)
+            {
+                if (resName[i] == key[0] && resName[i + 1] == key[1])
+                {
+                    break;
+                }
+                else
+                {
+                    key += resName[i];
+                }
+            }
+            return key;
 
         }
-
-
         public string Decrypt(string plan, string key)
         {
             char[,] matrix = matrixx();
