@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,11 +34,11 @@ namespace SecurityLibrary.DiffieHellman
            int k1 = power(yb, xa, q);
            int k2 = power(ya, xb, q);
 
-            List<int> result = new List<int>();
-            result.Add(k1);
-            result.Add(k2);
+            List<int> keys = new List<int>();
+            keys.Add(k1);
+            keys.Add(k2);
 
-            return result;
+            return keys;
 
             
         }
